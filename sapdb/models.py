@@ -15,13 +15,12 @@ class Food(models.Model):
     name = models.CharField(primary_key=True, max_length=255)
     image = models.CharField(max_length=255)
     effect = models.CharField(max_length=255)
-    triggers = models.ManyToManyField('Trigger', related_name='food_triggers')
+    triggers = models.ManyToManyField('Use', related_name='food_uses')
     packs = models.ManyToManyField('Pack', related_name='food_packs')
 
-class Trigger(models.Model):
+class Use(models.Model):
     name = models.CharField(primary_key=True, max_length=255)
-    type = models.CharField(max_length=255)
-    foods = models.ManyToManyField('Food', related_name="trigger_foods")
+    foods = models.ManyToManyField('Food', related_name="use_foods")
 
 class Pack(models.Model):
     name = models.CharField(primary_key=True, max_length=255)
