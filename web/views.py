@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sapi.views import getFoods
+from sapdb.views import getFoods
 
 def my_view(request):
     response = getFoods(request)
