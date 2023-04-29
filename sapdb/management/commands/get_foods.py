@@ -1,3 +1,5 @@
+# one-off command
+
 from bs4 import BeautifulSoup
 import requests
 from sapdb.models import Food, Trigger, Pack
@@ -26,25 +28,6 @@ class Command(BaseCommand):
           in_turtle = row.select_one('td:nth-of-type(4)').text.strip()
           in_puppy = row.select_one('td:nth-of-type(5)').text.strip()
           in_star = row.select_one('td:nth-of-type(6)').text.strip()
-
-          already_present = Food.objects.filter(name=name).first()
-
-          if already_present:
-            # already_present.effect = already_present.effect.replace('\n', ' ')
-            # if "Yes" in in_turtle:
-            #   turtle.foods.add(already_present)
-            #   already_present.packs.add(turtle)
-
-            # if "Yes" in in_puppy:
-            #   puppy.foods.add(already_present)
-            #   already_present.packs.add(puppy)
-
-            # if "Yes" in in_star:
-            #   star.foods.add(already_present)
-            #   already_present.packs.add(star)
-            # print(already_present.effect)
-            # already_present.save()
-            continue
 
           if type(tier) == str:
             tier = 0
